@@ -1,0 +1,63 @@
+body {
+    background: #ccc;
+    transition: 1s;
+}
+
+#main {
+    background: white;
+    text-align: center;
+    display: grid;
+
+    width: 50%;
+    margin: 0 auto;
+    align-items: center;
+
+}
+
+.bt-getall {
+    margin: 5px;
+}
+
+div.grid-container {
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-columns: 25% 25% 25% 25%;
+    /* Essa é a melhor coisa............ eu posso usar auto no final......... */
+    /* grid-template é muito boooom */
+
+}
+
+.btEquals2 {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    background: rgb(70, 252, 54);
+    border: 0;
+}
+
+
+
+#btBackspace {
+    background: black;
+    color: white;
+    font-weight: bolder;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+
+#myResult {
+    min-height: 50px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+}
