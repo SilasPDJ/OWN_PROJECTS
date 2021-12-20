@@ -163,13 +163,13 @@ class Calendario extends CalendarOptionsGenerator {
     #setCalendarDatesStart(weekDay) {
         // Sinaliza em que dia da semana começa o mês
         let [_, pastMonthLastDayDate] = this.#criaCalendar(1);
-        console.log(pastMonthLastDayDate);
+        // console.log(pastMonthLastDayDate);
         // pastMonthLastDayDate
         for (let i = 0; i < weekDay; i++) {
             let el = this.#makeNewDateEl();
             el.querySelector("p:first-child").textContent =
                 pastMonthLastDayDate - weekDay + i + 1;
-            el.classList.add("nextMonthDays");
+            el.classList.add("lastMonthDays");
 
             this.calendarContainer.appendChild(el);
         }
@@ -209,12 +209,10 @@ let c = new Calendario(
     document.querySelector("#selectMonth"),
     document.querySelector("#selectYear")
 );
+// c.createCalendarDays(30);
 /*let d = new Calendario(
     "#calendarContainer2",
     document.querySelector("#selectMonth"),
     document.querySelector("#selectYear")
 );
 */
-
-// c.createCalendarDays(30);
-console.log(c.range(10));
