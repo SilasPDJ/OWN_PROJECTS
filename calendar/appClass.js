@@ -59,6 +59,20 @@ class CalendarOptionsGenerator {
         });
     }
 
+    mudaDias() {
+        // monthDays on click
+        let monthDays = document.querySelectorAll(".monthDays");
+
+        monthDays.forEach((element) => {
+            element.addEventListener("click", function () {
+                let monthVal = c.monthSelect.value;
+                let yearVal = c.yearSelect.value;
+
+                console.log(element.textContent, monthVal, yearVal);
+            });
+        });
+    }
+
     range(start, stop, step) {
         // null => rolo vazio
         // undefined => sem papel higiênico
@@ -82,6 +96,7 @@ class Calendario extends CalendarOptionsGenerator {
     constructor(calendarSelector, monthSelect, yearSelect) {
         super(monthSelect, yearSelect);
         this.calendarContainer = document.querySelector(calendarSelector);
+        this.createCalendarSelectsOptionsValues();
 
         const onChangeOrClick = () => {
             this.changeCalendar();
@@ -136,13 +151,13 @@ class Calendario extends CalendarOptionsGenerator {
 
         this.#resetCalendarItems();
         this.setCalendarWeekDays();
-        this.createCalendarSelectsOptionsValues();
         // alert(this.selectMonth.value);
 
         this.#setCalendarDatesStart(weekDay);
         // this.#getCalendarDaysInicio(weekDay);
         this.createCalendarDates(lastDayDate);
         this.#setCalendarDatesEnd(".calendar-date");
+        this.mudaDias();
     }
 
     #resetCalendarItems() {
@@ -177,7 +192,9 @@ class Calendario extends CalendarOptionsGenerator {
     createCalendarDates(lastDate) {
         this.range(1, lastDate + 1).forEach((v, i) => {
             let el = this.#makeNewDateEl();
-            el.querySelector("p:first-child").textContent = v;
+            el.classList.add("monthDays");
+            // el.querySelector("p:first-child").textContent = v;
+            el.querySelector("p:first-child").innerHTML = v;
 
             this.calendarContainer.appendChild(el);
         });
@@ -196,7 +213,7 @@ class Calendario extends CalendarOptionsGenerator {
     }
 
     #makeNewDateEl() {
-        let div = document.createElement("div");
+        let div = document.createElement("button");
         div.classList.add("calendar-date");
         let newp = document.createElement("p");
         div.appendChild(newp);

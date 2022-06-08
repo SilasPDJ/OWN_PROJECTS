@@ -18,3 +18,5 @@ mudaBg.addEventListener("click", test);
 setInterval(() => {
     document.body.style.background = randomColor();
 }, 5000);
+
+// arrowkeys interaction

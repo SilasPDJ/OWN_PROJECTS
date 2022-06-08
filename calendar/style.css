@@ -38,7 +38,11 @@ header>div {
 
 .calendar-date {
     border: 5px transparent double;
+    padding: 10px;
+    font: 800 18px arial;
+    color: white;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .calendar-date:hover {
